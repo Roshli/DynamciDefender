@@ -94,7 +94,7 @@ if(!isset($_SESSION['UserData']['Username'])){
         table.table tr th:last-child {
             width: 100px;
         }
-        table.table-striped tbody tr:nth-of-type(odd) {
+        table.table-striped tbody tr:nth-of-type(even) {
             background-color: #fcfcfc;
         }
         table.table-striped.table-hover tbody tr:hover {
@@ -406,9 +406,133 @@ if(!isset($_SESSION['UserData']['Username'])){
 
 <!-- Blacklist by Category-->
 <div id="BlacklistCategoryModal" class="modal fade">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th bgcolor=white>
+							<!--<span class="custom-checkbox">
+								<input type="checkbox" id="selectAll">
+								<label for="selectAll"></label>
+							</span>-->
+            </th >
+            <th bgcolor=white>Select the site categories to be blocked</th>
+            <th bgcolor=white></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Torrent</td>
+        </tr>
 
 
-    <div class="modal-dialog">
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>violance</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Pornography</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Social Media</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Entertainment</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Games</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Education</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Art</td>
+        </tr>
+
+        <tr>
+            <td>
+							<span class="custom-checkbox">
+								<input type="checkbox" id="checkbox1" name="options[]" value="1">
+								<label for="checkbox1"></label>
+							</span>
+            </td>
+            <td>Political</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!--the new table for whitelisted websites-->
+
+    <!----end of whitelist table-->
+    <div class="clearfix">
+        <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+        <ul class="pagination">
+            <li class="page-item disabled"><a href="#">Previous</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">4</a></li>
+            <li class="page-item"><a href="#" class="page-link">5</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+
+   <!-- <div class="modal-dialog">
         <div class="modal-content">
             <form>
                 <div class="modal-header">
@@ -433,7 +557,7 @@ if(!isset($_SESSION['UserData']['Username'])){
             </form>
         </div>
     </div>
-</div>
+</div>-->
 
 <!-- end of categorymodel-->
 
@@ -525,6 +649,11 @@ if(!isset($_SESSION['UserData']['Username'])){
 </body>
 </html>
 <div class="Left_bellow">
+    <a href="DDHome.php" name="Logout" type="button" class="btn float-right login_btn">Home</a>
+</div>
+
+<?php
+?><div class="Left_bellow">
     <a href="DDHome.php" name="Logout" type="button" class="btn float-right login_btn">Home</a>
 </div>
 
