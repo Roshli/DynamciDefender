@@ -1,5 +1,12 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script type="text/javascript" src="http://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://ff.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css"/><script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<?php session_start(); /* Starts the session */
+if(!isset($_SESSION['UserData']['Username'])){
+    header("location:login.php");
+    exit;
+}
+?>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <!DOCTYPE html>
@@ -280,14 +287,11 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2>Manage <b>Customers</b></h2>
+                    <h2>Manage <b>Employees</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Customer</span></a>
-                    <a href="#editEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Update Customer</span></a>
-
+                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
                     <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
-
                 </div>
             </div>
         </div>
@@ -301,13 +305,10 @@
 							</span>
                 </th>
                 <th>Name</th>
-                <th>NIC</th>
-                <th>Password</th>
+                <th>Email</th>
+                <th>Address</th>
                 <th>Phone</th>
-                <th>Reg/Not</th>
-                <th>Received Loyalty Points</th>
-                <th>UserType</th>
-                <th>Allocated quota amount</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -319,14 +320,9 @@
 							</span>
                 </td>
                 <td>Thomas Hardy</td>
-                <td>921265987V</td>
-                <td>123</td>
-                <td>077634322</td>
-                <td>1</td>
-                <td>200</td>
-                <td>Regular</td>
-                <td>5</td>
-
+                <td>thomashardy@mail.com</td>
+                <td>89 Chiaroscuro Rd, Portland, USA</td>
+                <td>(171) 555-2222</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -339,14 +335,10 @@
 								<label for="checkbox2"></label>
 							</span>
                 </td>
-                <td>Ned Stallings</td>
-                <td>cus1001</td>
-                <td></td>
-                <td>077734322</td>
-                <td>0</td>
-                <td>5</td>
-                <td>Guest</td>
-                <td>3</td>
+                <td>Dominique Perrier</td>
+                <td>dominiqueperrier@mail.com</td>
+                <td>Obere Str. 57, Berlin, Germany</td>
+                <td>(313) 555-5735</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -359,15 +351,10 @@
 								<label for="checkbox3"></label>
 							</span>
                 </td>
-
-                <td>Hardy Williams</td>
-                <td>985465989V</td>
-                <td>Hardy123</td>
-                <td>077634892</td>
-                <td>1</td>
-                <td>11</td>
-                <td>New</td>
-                <td>3</td>
+                <td>Maria Anders</td>
+                <td>mariaanders@mail.com</td>
+                <td>25, rue Lauriston, Paris, France</td>
+                <td>(503) 555-9931</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -380,15 +367,10 @@
 								<label for="checkbox4"></label>
 							</span>
                 </td>
-
-                <td>Nancy</td>
-                <td>985466003V</td>
-                <td>nan123</td>
-                <td>077437522</td>
-                <td>1</td>
-                <td>245</td>
-                <td>Regular</td>
-                <td>5</td>
+                <td>Fran Wilson</td>
+                <td>franwilson@mail.com</td>
+                <td>C/ Araquil, 67, Madrid, Spain</td>
+                <td>(204) 619-5731</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -401,15 +383,10 @@
 								<label for="checkbox5"></label>
 							</span>
                 </td>
-
-                <td>Joseph Fernando</td>
-                <td>785466006V</td>
-                <td>123joe</td>
-                <td>072634322</td>
-                <td>1</td>
-                <td>1121</td>
-                <td>VIP</td>
-                <td>10</td>
+                <td>Martin Blank</td>
+                <td>martinblank@mail.com</td>
+                <td>Via Monte Bianco 34, Turin, Italy</td>
+                <td>(480) 631-2097</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -446,31 +423,15 @@
                         <input type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>NIC</label>
+                        <label>Email</label>
                         <input type="email" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>Address</label>
                         <textarea class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Reg/Not</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Loyalty Points</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Type</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Allocated Quota Amount</label>
                         <input type="text" class="form-control" required>
                     </div>
                 </div>
@@ -497,31 +458,15 @@
                         <input type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>NIC</label>
+                        <label>Email</label>
                         <input type="email" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>Address</label>
                         <textarea class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Reg/Not</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Loyalty Points</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Type</label>
-
-                    </div>
-                    <div class="form-group">
-                        <label>Allocated Quota Amount</label>
                         <input type="text" class="form-control" required>
                     </div>
                 </div>
@@ -560,3 +505,5 @@
 </body>
 </html>
 
+<?php
+?>
