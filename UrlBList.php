@@ -531,7 +531,19 @@ if(!isset($_SESSION['UserData']['Username'])){
     </div>
 </div>
 </div>
+<div class="table-title">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2><b>Reports</b></h2>
+        </div>
+        <div class="col-sm-6">
+            <a href="#mailalertforlogs" class="btn btn-success" data-toggle="modal"><i class="material-icons" ></i> <span>URL access log</span></a>
+            <a href="#mailalertforlogs" class="btn btn-success" data-toggle="modal"><i class="material-icons" ></i> <span>Whitelist/ Blacklist Change Log</span></a>
 
+
+        </div>
+    </div>
+</div>
    <!-- <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -641,6 +653,28 @@ if(!isset($_SESSION['UserData']['Username'])){
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                     <input type="submit" class="btn btn-danger" value="Delete">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="mailalertforlogs" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">URL module based Logs</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>E-mail logs to the admin e-mail provided at setup?</p>
+                    <p class="text-warning"><small>You can download directly from here.</small></p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Yes">
+                    <input type="submit" class="btn btn-danger" value="No">
                 </div>
             </form>
         </div>
