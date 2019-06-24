@@ -295,7 +295,7 @@
             <tr>
                 <td>Intrusion Detection System</td>
                 <td>-</td>
-                <td><a href="#deleteEmployeeModal" class="btn btn-danger" "><span>Trigger</span></a></td>
+                <td><a href="mail.php" class="btn btn-danger" "><span>Trigger</span></a></td>
             </tr>
             <tr>
                 <td>URL Blocking</td>

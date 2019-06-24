@@ -58,7 +58,7 @@ if(!isset($_SESSION['UserData']['Username'])){
     </table>
 </div>
 <div class="Left_bellow">
-    <a href="Login.php" name="Logout" type="button" class="btn float-right login_btn">Log Out</a>
+    <a href="logout.php" name="Logout" type="button" class="btn float-right login_btn">Log Out</a>
 </div>
 </body>
 </html>
