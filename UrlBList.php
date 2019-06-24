@@ -287,11 +287,11 @@ if(!isset($_SESSION['UserData']['Username'])){
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2>Manage <b>Employees</b></h2>
+                    <h2><b>Whitelist/ Blacklist websites</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
-                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
+                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Blacklist</span></a>&#xE147
+                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Whitelist</span></a>
                 </div>
             </div>
         </div>
@@ -304,10 +304,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="selectAll"></label>
 							</span>
                 </th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone</th>
+                <th>Web Site</th>
+                <th>Category</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -319,10 +317,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="checkbox1"></label>
 							</span>
                 </td>
-                <td>Thomas Hardy</td>
-                <td>thomashardy@mail.com</td>
-                <td>89 Chiaroscuro Rd, Portland, USA</td>
-                <td>(171) 555-2222</td>
+                <td>thepiratebay.org</td>
+                <td>Torrent</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -335,10 +331,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="checkbox2"></label>
 							</span>
                 </td>
-                <td>Dominique Perrier</td>
-                <td>dominiqueperrier@mail.com</td>
-                <td>Obere Str. 57, Berlin, Germany</td>
-                <td>(313) 555-5735</td>
+                <td>Ad.yieldmanager.com</td>
+                <td>Malicious</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -351,10 +345,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="checkbox3"></label>
 							</span>
                 </td>
-                <td>Maria Anders</td>
-                <td>mariaanders@mail.com</td>
-                <td>25, rue Lauriston, Paris, France</td>
-                <td>(503) 555-9931</td>
+                <td>Ask.fm</td>
+                <td>Data Mining</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -367,10 +359,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="checkbox4"></label>
 							</span>
                 </td>
-                <td>Fran Wilson</td>
-                <td>franwilson@mail.com</td>
-                <td>C/ Araquil, 67, Madrid, Spain</td>
-                <td>(204) 619-5731</td>
+                <td>Yts.ag</td>
+                <td>Torrent</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
@@ -383,10 +373,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="checkbox5"></label>
 							</span>
                 </td>
-                <td>Martin Blank</td>
-                <td>martinblank@mail.com</td>
-                <td>Via Monte Bianco 34, Turin, Italy</td>
-                <td>(480) 631-2097</td>
+                <td>weneedwar.com</td>
+                <td>Violence</td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                     <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
