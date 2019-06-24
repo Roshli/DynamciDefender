@@ -309,7 +309,7 @@ if(!isset($_SESSION['UserData']['Username'])){
                 <td>Enter URL</td>
                 <td >
                     <input type="text" class="form-control" placeholder="URL" name="search2">
-                    <a href="#deleteEmployeeModal" class="btn btn-danger" "><span>Trigger</span></a>
+                    <a href="URLBlock.php" class="btn btn-danger" "><span>Trigger</span></a>
                 </td>
             </tr>
 
@@ -318,6 +318,9 @@ if(!isset($_SESSION['UserData']['Username'])){
 
     </div>
 </div>
+
+
+<a href="TimeMger.php"><img src="./img/bandwith.png" style="height: 150px; width: 150px;"></a></td>
 <div class="Left_bellow">
     <a href="DDHome.php" name="Logout" type="button" class="btn float-right login_btn">Home</a>
 </div>

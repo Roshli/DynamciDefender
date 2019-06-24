@@ -407,7 +407,7 @@ if(!isset($_SESSION['UserData']['Username'])){
 <!-- Blacklist by Category-->
 <div id="BlacklistCategoryModal" class="modal fade">
 
-<!-- End of Blacklist by category-->
+
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
@@ -434,6 +434,10 @@ if(!isset($_SESSION['UserData']['Username'])){
         </div>
     </div>
 </div>
+
+<!-- end of categorymodel-->
+
+
 <!-- Edit Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
