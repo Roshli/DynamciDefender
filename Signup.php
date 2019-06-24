@@ -131,29 +131,7 @@
             <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
         </div>
     </form>
-    <div class="text-center">Already have an account? <a href="http://localhost:8080/DynamiDefender/Login.php">Sign in</a></div>
+    <div class="text-center">Already have an account? <a href="Login.php">Sign in</a></div>
 </div>
 </body>
 </html>
-
-<?php
-session_start();
-
-$userinfo = array(
-    'user1'=>'password1',
-    'user2'=>'password2'
-);
-
-if(isset($_GET['logout'])) {
-    $_SESSION['username'] = '';
-    header('Location:  ' . $_SERVER['PHP_SELF']);
-}
-
-if(isset($_POST['username'])) {
-    if($userinfo[$_POST['username']] == $_POST['password']) {
-        $_SESSION['username'] = $_POST['username'];
-    }else {
-        //Invalid Login
-    }
-}
-?>
