@@ -124,7 +124,7 @@ if(!isset($_SESSION['UserData']['Username'])){
             color: #FFC107;
         }
         table.table td a.delete {
-            color: #F44336;
+            color: red;
         }
         table.table td i {
             font-size: 19px;
@@ -290,8 +290,10 @@ if(!isset($_SESSION['UserData']['Username'])){
                     <h2><b>Whitelist/ Blacklist websites</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Blacklist</span></a>&#xE147
-                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Whitelist</span></a>
+                    <a href="#deleteEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons" >&#xE15C;</i> <span>Whitelist</span></a>
+                    <a href="#BlacklistCategoryModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Blacklist by Category</span></a>
+                    <a href="#addEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Blacklist</span></a>
+
                 </div>
             </div>
         </div>
@@ -304,7 +306,7 @@ if(!isset($_SESSION['UserData']['Username'])){
 								<label for="selectAll"></label>
 							</span>
                 </th>
-                <th>Web Site</th>
+                <th>Website</th>
                 <th>Category</th>
                 <th>Actions</th>
             </tr>
@@ -382,6 +384,11 @@ if(!isset($_SESSION['UserData']['Username'])){
             </tr>
             </tbody>
         </table>
+
+
+        <!--the new table for whitelisted websites-->
+
+        <!----end of whitelist table-->
         <div class="clearfix">
             <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
             <ul class="pagination">
@@ -396,32 +403,56 @@ if(!isset($_SESSION['UserData']['Username'])){
         </div>
     </div>
 </div>
+
+<!-- Blacklist by Category-->
+<div id="BlacklistCategoryModal" class="modal fade">
+
+<!-- End of Blacklist by category-->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h4 class="modal-title">Blacklist a website</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                    <input type="submit" class="btn btn-success" value="Add">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 <!-- Edit Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
+                    <h4 class="modal-title">Blacklist a website</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Name</label>
+                        <label>Website</label>
                         <input type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
+                        <label>Category</label>
                         <input type="email" class="form-control" required>
                     </div>
-                    <div class="form-group">
-                        <label>Address</label>
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" class="form-control" required>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
