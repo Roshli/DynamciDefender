@@ -18,7 +18,7 @@ $mail->IsHTML(true);
 $mail->Username = "dynamicdefender001@gmail.com";
 $mail->Password = "Dynamic@1234";
 $mail->SetFrom("dynamicdefender001@gmail.com");
-$mail->Subject = "Treat Alert!!!";
+$mail->Subject = "Threat Alert!!!";
 $mail->Body = "You are under an attack log to Dynamic defender for more dertails.";
 $mail->AddAddress("roshliperera@gmail.com");
 

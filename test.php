@@ -1,1 +1,0 @@
-<table><tr><td><img src="./img/logo2.png" style="height: 200px; width: 500px;"></td></tr><tr><td><div style="background-color: #ffdddd; border-left: 6px solid #f44336; width: 500px; height: 50px"><p style="padding-top: 15px"><strong>Alert!</strong> You are under an attack log to Dynamic defender for more dertails.</p></div></td></tr></table>

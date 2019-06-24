@@ -300,9 +300,9 @@ if(!isset($_SESSION['UserData']['Username'])){
             </thead>
             <tbody>
             <tr>
-                <td>Thomas Hardy</td>
-                <td>thomashardy@mail.com</td>
-                <td>89 Chiaroscuro Rd, Portland, USA</td>
+                <td>DoS(Denial-of-service attack)</td>
+                <td>2019-02-05 08:45PM</td>
+                <td>Temperory Network Disconnect</td>
             </tr>
 
             </tbody>
