@@ -1,3 +1,4 @@
+
 <?php session_start(); /* Starts the session */
 /* Check Login form submitted */if(isset($_POST['Submit'])){
     /* Define username and associated password array */$logins = array('Alex' => '123456','username1' => 'password1','username2' => 'password2');
@@ -14,6 +15,7 @@
     }
 }
 ?>
+
 
 
 
