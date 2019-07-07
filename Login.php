@@ -1,18 +1,91 @@
 
-<?php session_start(); /* Starts the session */
-/* Check Login form submitted */if(isset($_POST['Submit'])){
-    /* Define username and associated password array */$logins = array('Alex' => '123456','username1' => 'password1','username2' => 'password2');
+<?php
+// Initialize the session
+session_start();
 
-    /* Check and assign submitted Username and Password to new variable */$Username = isset($_POST['Username']) ? $_POST['Username'] : '';
-    $Password = isset($_POST['Password']) ? $_POST['Password'] : '';
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: Login.php");
+    exit;
+}
 
-    /* Check Username and Password existence in defined array */if (isset($logins[$Username]) && $logins[$Username] == $Password){
-        /* Success: Set session variables and redirect to Protected page  */$_SESSION['UserData']['Username']=$logins[$Username];
-        header("location:DDHome.php");
-        exit;
-    } else {
-        /*Unsuccessful attempt: Set error message */$msg="<span style='color:red'>Invalid Login Details</span>";
+// Include config file
+require_once "config.php";
+
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    // Check if username is empty
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter username.";
+    } else{
+        $username = trim($_POST["username"]);
     }
+
+    // Check if password is empty
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+
+    // Validate credentials
+    if(empty($username_err) && empty($password_err)){
+        // Prepare a select statement
+        $sql = "SELECT userID, username, password FROM userreg WHERE username = ?";
+
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_username);
+
+            // Set parameters
+            $param_username = $username;
+
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                // Store result
+                mysqli_stmt_store_result($stmt);
+
+                // Check if username exists, if yes then verify password
+                if(mysqli_stmt_num_rows($stmt) == 1){
+                    // Bind result variables
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    if(mysqli_stmt_fetch($stmt)){
+                        if(password_verify($password, $hashed_password)){
+                            // Password is correct, so start a new session
+                            session_start();
+
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;
+
+                            // Redirect user to welcome page
+                            header("location: DDHome.php");
+                        } else{
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else{
+                    // Display an error message if username doesn't exist
+                    $username_err = "No account found with that username.";
+                }
+            } else{
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+        }
+
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
+
+    // Close connection
+    mysqli_close($link);
 }
 ?>
 
@@ -47,31 +120,25 @@
 
             </div>
             <div class="card-body">
-                <form action="" method="post" name="Login_Form">
-                    <div class="input-group form-group">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <div class="input-group form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
                         </div>
-                        <input name="Username" type="text" class="form-control" placeholder="username">
+                        <input name="username" type="text" class="form-control" placeholder="email">
 
                     </div>
-                    <div class="input-group form-group">
+                    <div class="input-group form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input name="Password" type="password" class="form-control" placeholder="password">
+                        <input name="password" type="password" class="form-control" placeholder="password">
                     </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Remember Me
-                    </div>
+
                     <div class="form-group">
-                        <input name="Submit" type="submit" value="Login" class="btn float-right login_btn">
+                        <input name="submit" type="submit" value="Login" class="btn float-right login_btn">
                     </div>
-                    <?php if(isset($msg)){?>
-                        <tr>
-                            <td colspan="2" align="center" valign="top"><?php echo $msg;?></td>
-                        </tr>
-                    <?php } ?>
+
                 </form>
             </div>
             <div class="card-footer">
@@ -79,7 +146,7 @@
                     Don't have an account?<a href="Signup.php">Sign Up</a>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a href="#">Forgot your password?</a>
+                    <a href="PwdReset.php">Forgot your password?</a>
                 </div>
             </div>
         </div>

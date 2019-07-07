@@ -1,6 +1,10 @@
-<?php session_start(); /* Starts the session */
-if(!isset($_SESSION['UserData']['Username'])){
-    header("location:Login.php");
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: Login.php");
     exit;
 }
 ?>
@@ -324,5 +328,8 @@ if(!isset($_SESSION['UserData']['Username'])){
 <div class="Left_bellow">
     <a href="DDHome.php" name="Logout" type="button" class="btn float-right login_btn">Home</a>
 </div>
+</body>
+</html>
+
 <?php
 ?>

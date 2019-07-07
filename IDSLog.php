@@ -1,8 +1,21 @@
-<?php session_start(); /* Starts the session */
-if(!isset($_SESSION['UserData']['Username'])){
-    header("location:Login.php");
+<?php
+// Initialize the session
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: Login.php");
     exit;
 }
+// Include config file
+require_once "config.php";
+
+$sql = "SELECT category, time, action FROM idslog";
+$result = $link->query($sql);
+
+
+
+$link->close();
 ?>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -26,14 +39,14 @@ if(!isset($_SESSION['UserData']['Username'])){
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="css/styles_home.css">
     <style type="text/css">
-        .Left_bellow {
-            margin: 0;
-            position: absolute;
-            top: 95%;
-            left: 10%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
+            .Left_bellow {
+                margin: 0;
+                position: absolute;
+                top: 95%;
+                left: 10%;
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
         body {
             color: #566787;
             background: #f5f5f5;
@@ -254,31 +267,6 @@ if(!isset($_SESSION['UserData']['Username'])){
             font-weight: normal;
         }
     </style>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            // Activate tooltip
-            $('[data-toggle="tooltip"]').tooltip();
-
-            // Select/Deselect checkboxes
-            var checkbox = $('table tbody input[type="checkbox"]');
-            $("#selectAll").click(function(){
-                if(this.checked){
-                    checkbox.each(function(){
-                        this.checked = true;
-                    });
-                } else{
-                    checkbox.each(function(){
-                        this.checked = false;
-                    });
-                }
-            });
-            checkbox.click(function(){
-                if(!this.checked){
-                    $("#selectAll").prop("checked", false);
-                }
-            });
-        });
-    </script>
 </head>
 <body>
 <div class="container">
@@ -290,23 +278,30 @@ if(!isset($_SESSION['UserData']['Username'])){
                 </div>
             </div>
         </div>
-        <table class="table table-striped table-hover">
-            <thead>
-            <tr>
-                <th>Category</th>
-                <th>Time</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>DoS(Denial-of-service attack)</td>
-                <td>2019-02-05 08:45PM</td>
-                <td>Temperory Network Disconnect</td>
-            </tr>
-
-            </tbody>
-        </table>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Time</th>
+                    <th>Action</th>
+                </tr>
+                </thead>";
+            <?php
+                if ($result->num_rows > 0){
+                    while($row = $result->fetch_assoc()) {
+                        echo "
+                        <tbody>
+                        <tr>
+                            <td>" . $row["category"] . "</td>
+                            <td>" . $row["time"] . "</td>
+                            <td>" . $row["action"] . "</td>
+                        </tr>
+        
+                        </tbody>";
+                    }
+                }
+            ?>
+            </table>
 
     </div>
 </div>
